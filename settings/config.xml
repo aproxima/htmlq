@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
-<!-- 
+<!--
 //
 // ===================================================
 // FlashQ by Christian Hackert and Gernot Braehler
@@ -9,7 +9,7 @@
 // @author		Christian Hackert <www.hackert.biz/flashq>
 // @version		FlashQ version 1.0
 // ===================================================
-// 
+//
 -->
 
 <config version="1.0" htmlParse="false">
@@ -68,7 +68,7 @@
 
     <note bg="false">All fields marked with an * are mandatory.</note>
   </item>
- 
+
   <!-- URL for data transmission via POST/GET (leave blank if not required) -->
   <item id="submitUrl">exe.php?do=save</item>
   <!-- request mode (post|get) -->

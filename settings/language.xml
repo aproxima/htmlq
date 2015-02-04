@@ -1,33 +1,25 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
-<!-- 
+<!--
 //
-// ===================================================
-// FlashQ by Christian Hackert and Gernot Braehler
-// ===================================================
-// Language pack.
-// @author		Christian Hackert <www.hackert.biz/flashq>
-// @version		FlashQ version 1.0
-// ===================================================
-// 
-// In order to translate FlashQ or to customize the texts, 
-// just change the text between the opening and the closing 
-// tag. The attribute 'id' is the name of the variable 
-// and must remain unchanged.  
+// In order to translate HtmlQ or to customize the texts,
+// just change the text between the opening and the closing
+// tag. The attribute 'id' is the name of the variable
+// and must remain unchanged.
 //
-// You can use HTML-tags, but you have to braces instead 
-// of the normal angle brackets, otherwise the import will fail. 
+// You can use HTML-tags, but you have to braces instead
+// of the normal angle brackets, otherwise the import will fail.
 // Example: {b}bold{/b}
 //
-// If your are using German Umlauts and other special 
-// characters, make sure, that you save this XML-file 
-// as an UTF-8-document. White-space inbetween the 
+// If your are using German Umlauts and other special
+// characters, make sure, that you save this XML-file
+// as an UTF-8-document. White-space inbetween the
 // nodes are ignored. Any white-space within the text-
-// nodes, including leading or trailing whitespace and 
+// nodes, including leading or trailing whitespace and
 // line breaks, is preserved.
 //
 // ===================================================
-// 
+//
 -->
 
 <language version="1.0" htmlParse="true">
