@@ -1,0 +1,18 @@
+<div id="login">
+    <div class="row" style="margin-top: 50px;">
+        <div class="col-xs-12">
+            <h4 ng-bind-html="language.loginHead"></h4>
+            <p ng-bind-html="language.loginText"></p>
+
+            <div class="alert alert-danger" role="alert" ng-if="error" ng-bind-html="error"></div>
+
+            <form role="form" class="form-inline user-code-form" ng-submit="login(usercode)">
+                <div class="form-group">
+                    <label for="usercode" ng-bind-html="language.loginFormHeader"></label>
+                    <input class="form-control" id="usercode" ng-model="usercode" autocomplete="off"/>
+                    <button type="submit" class="btn btn-default" ng-bind-html="language.btnContinue"></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div id="step1" track-duration="duration[0]">
+    <div id="statements" style="width: 300px; margin: 0 auto; overflow: visible;">
+        <div ng-repeat="statement in sortedStatements.list | filter:hasNoCategory | limitTo: 1" class="draggable" draggable-statement-first="statement" ng-class="{textright: textAlignRight}"><b>({{ statement._id }})</b> <span ng-bind-html="statement.__text"></span></div>
+        <p class="card-counter" ng-show="sortedCards() < allCards()">{{ sortedCards() + 1 }}/{{ allCards() }}</p>
+    </div>
+
+    <div class="sorted-statements">
+        <table style="width: 100%; height: 100%; table-layout: fixed;">
+            <tr>
+                <td style="padding: 15px; vertical-align: top;">
+                    <p class="heading"><span ng-bind-html="language.btnDisagreement"></span> (#1)</p>
+                    <div droppable droppable-model="sortedStatements.disagree" on-droppable-receive="removeFromSortedStatements($statement)" after-drop="afterDrop($statement, $category)" droppable-category="disagree" class="sortable disagree">
+                        <div class="overlay"></div>
+                        <ul>
+                            <li ng-repeat="statement in sortedStatements.disagree" class="draggable" draggable-statement-first="statement" ng-class="{textright: textAlignRight}"><b>({{ statement._id }})</b> <span ng-bind-html="statement.__text"></span></li>
+                        </ul>
+                    </div>
+                </td>
+                <td style="padding: 15px; vertical-align: top;">
+                    <p class="heading"><span ng-bind-html="language.btnNeutral"></span> (#2)</p>
+                    <div droppable droppable-model="sortedStatements.neutral" on-droppable-receive="removeFromSortedStatements($statement)" after-drop="afterDrop($statement, $category)" droppable-category="neutral" class="sortable neutral">
+                        <div class="overlay"></div>
+                        <ul>
+                            <li ng-repeat="statement in sortedStatements.neutral" class="draggable" draggable-statement-first="statement" ng-class="{textright: textAlignRight}"><b>({{ statement._id }})</b> <span ng-bind-html="statement.__text"></span></li>
+                        </ul>
+                    </div>
+                </td>
+                <td style="padding: 15px; vertical-align: top;">
+                    <p class="heading"><span ng-bind-html="language.btnAgreement"></span> (#3)</p>
+                    <div droppable droppable-model="sortedStatements.agree" on-droppable-receive="removeFromSortedStatements($statement)" after-drop="afterDrop($statement, $category)" droppable-category="agree" class="sortable agree">
+                        <div class="overlay"></div>
+                        <ul>
+                            <li ng-repeat="statement in sortedStatements.agree" class="draggable" draggable-statement-first="statement" ng-class="{textright: textAlignRight}"><b>({{ statement._id }})</b> <span ng-bind-html="statement.__text"></span></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div ng-if="debug" class="row">
+    {{ sortedStatements }}
+</div>
+
+<div ng-if="debug" class="row">
+    {{ duration }}
+</div>

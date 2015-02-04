@@ -1,0 +1,112 @@
+<div id="step5" track-duration="duration[4]">
+    <div ng-show="error" class="row" style="margin-top: 35px;">
+        <div class="alert alert-danger">
+            <p ng-bind-html="language.fillInRequiredFields"></p>
+        </div>
+    </div>
+
+    <div class="row" ng-repeat="element in survey.formElements">
+        <div class="col-xs-12">
+            <div ng-if="element.type == 'label'" class="row question-label"><h4 ng-bind-html="element.text"></h4></div>
+            <div ng-if="element.type == 'note' && element.bg" class="row question-note" ng-bind-html="{textright: textAlignRight}" ng-bind-html="element.text"></div>
+            <div ng-if="element.type == 'note' && !element.bg" class="row question-note" style="background-color: transparent;" ng-class="{textright: textAlignRight}" ng-bind-html="element.text"></div>
+            <div ng-if="element.type == 'input'" class="row" ng-class="{'is-required': element.red, textright: textAlignRight}">
+                <div ng-if="element.inputType == 'text'" class="question-input">
+                    <input ng-model="element.value" maxlength="{{ element.maxLength }}">
+                </div>
+                <div ng-if="element.inputType == 'textarea'" class="question-input">
+                    <textarea rows="5" ng-model="element.value" maxlength="{{ element.maxLength }}"></textarea>
+                </div>
+                <div ng-if="element.inputType == 'radio'">
+                    <div ng-repeat="option in element.options" class="question-input"><input type="radio" id="{{ $parent.$index }}_{{ $index }}" name="{{ $parent.$index }}" value="{{ $index }}" ng-model="element.value"> <label for="{{ $parent.$index }}_{{ $index }}">{{option}}</label><br></div>
+                </div>
+                <div ng-if="element.inputType == 'select'">
+                    <select ng-options="idx as o for (idx, o) in element.options" ng-model="element.value" class="form-control"></select>
+                </div>
+                <div ng-if="element.inputType == 'checkbox'">
+                    <div ng-repeat="option in element.options" class="question-input"><input id="{{ $parent.$index }}_{{ $index }}" name="{{ $parent.$index }}" type="checkbox" ng-model="element.value[$index]"> <label for="{{ $parent.$index }}_{{ $index }}">{{option}}</label><br></div>
+                </div>
+                <div ng-if="element.inputType == 'rating2'" class="col-xs-12">
+                    <div class="row question-input">
+                        <div class="col-xs-6"></div>
+                        <div class="col-xs-6 text-center">
+                            <div class="col-xs-5">{{ element.scale[0] }}</div>
+                            <div class="col-xs-5">{{ element.scale[1] }}</div>
+                        </div>
+                    </div>
+                    <div ng-repeat="option in element.options" class="row question-input">
+                        <div class="col-xs-6">{{ option }}</div>
+                        <div class="col-xs-6 text-center">
+                            <div class="col-xs-5"><input type="radio" name="{{ $parent.$index }}_{{ $index }}" value="1" ng-model="element.value[$index]"></div>
+                            <div class="col-xs-5"><input type="radio" name="{{ $parent.$index }}_{{ $index }}" value="2" ng-model="element.value[$index]"></div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="element.inputType == 'rating5'" class="col-xs-12">
+                    <div class="row question-input">
+                        <div class="col-xs-6"></div>
+                        <div class="col-xs-6 text-center">
+                            <div class="col-xs-2">1</div>
+                            <div class="col-xs-2">2</div>
+                            <div class="col-xs-2">3</div>
+                            <div class="col-xs-2">4</div>
+                            <div class="col-xs-2">5</div>
+                        </div>
+                    </div>
+                    <div ng-repeat="option in element.options" class="row question-input">
+                        <div class="col-xs-6">{{ option }}</div>
+                        <div class="col-xs-6 text-center">
+                            <div class="col-xs-2"><input type="radio" name="{{ $parent.$index }}_{{ $index }}" value="1" ng-model="element.value[$index]"></div>
+                            <div class="col-xs-2"><input type="radio" name="{{ $parent.$index }}_{{ $index }}" value="2" ng-model="element.value[$index]"></div>
+                            <div class="col-xs-2"><input type="radio" name="{{ $parent.$index }}_{{ $index }}" value="3" ng-model="element.value[$index]"></div>
+                            <div class="col-xs-2"><input type="radio" name="{{ $parent.$index }}_{{ $index }}" value="4" ng-model="element.value[$index]"></div>
+                            <div class="col-xs-2"><input type="radio" name="{{ $parent.$index }}_{{ $index }}" value="5" ng-model="element.value[$index]"></div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="element.inputType == 'rating10'" class="col-xs-12">
+                    <div class="row question-input">
+                        <div class="col-xs-6"></div>
+                        <div class="col-xs-6 text-center">
+                            <div class="col-xs-1">1</div>
+                            <div class="col-xs-1">2</div>
+                            <div class="col-xs-1">3</div>
+                            <div class="col-xs-1">4</div>
+                            <div class="col-xs-1">5</div>
+                            <div class="col-xs-1">6</div>
+                            <div class="col-xs-1">7</div>
+                            <div class="col-xs-1">8</div>
+                            <div class="col-xs-1">9</div>
+                            <div class="col-xs-1">10</div>
+                        </div>
+                    </div>
+                    <div ng-repeat="option in element.options" class="row question-input">
+                        <div class="col-xs-6">{{ option }}</div>
+                        <div class="col-xs-6 text-center">
+                            <div class="col-xs-1"><input type="radio" name="{{ $parent.$index }}_{{ $index }}" value="1" ng-model="element.value[$index]"></div>
+                            <div class="col-xs-1"><input type="radio" name="{{ $parent.$index }}_{{ $index }}" value="2" ng-model="element.value[$index]"></div>
+                            <div class="col-xs-1"><input type="radio" name="{{ $parent.$index }}_{{ $index }}" value="3" ng-model="element.value[$index]"></div>
+                            <div class="col-xs-1"><input type="radio" name="{{ $parent.$index }}_{{ $index }}" value="4" ng-model="element.value[$index]"></div>
+                            <div class="col-xs-1"><input type="radio" name="{{ $parent.$index }}_{{ $index }}" value="5" ng-model="element.value[$index]"></div>
+                            <div class="col-xs-1"><input type="radio" name="{{ $parent.$index }}_{{ $index }}" value="6" ng-model="element.value[$index]"></div>
+                            <div class="col-xs-1"><input type="radio" name="{{ $parent.$index }}_{{ $index }}" value="7" ng-model="element.value[$index]"></div>
+                            <div class="col-xs-1"><input type="radio" name="{{ $parent.$index }}_{{ $index }}" value="8" ng-model="element.value[$index]"></div>
+                            <div class="col-xs-1"><input type="radio" name="{{ $parent.$index }}_{{ $index }}" value="9" ng-model="element.value[$index]"></div>
+                            <div class="col-xs-1"><input type="radio" name="{{ $parent.$index }}_{{ $index }}" value="10" ng-model="element.value[$index]"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-bottom: 50px;">
+        <div class="col-xs-12">
+            <a href="" ng-click="next()" class="btn btn-default btn-lg" ng-bind-html="language.btnContinue"></a>
+        </div>
+    </div>
+</div>
+
+<div ng-if="debug" class="row">
+    {{ survey }}
+</div>

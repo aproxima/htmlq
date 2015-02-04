@@ -1,0 +1,39 @@
+<div track-duration="duration[2]">
+    <div id="step3" droppable-background="">
+        <div class="grid">
+            <table>
+                <tr class="grid-heading">
+                    <td style="width: 960px;" colspan="{{ map.column.length }}">
+                        <span style="float: left;" ng-bind-html="language.btnDisagreement"></span>
+                        <span style="float: right; text-align: right;" ng-bind-html="language.btnAgreement"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-xs-1 rating" ng-repeat="col in map.column" ng-style="{'background-color': '#' + col._colour, width: 960/map.column.length}">
+                        <b>{{ col._id }}</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-xs-1" ng-repeat="col in sortedStatements.grid" ng-style="{width: 960/map.column.length}">
+                        <div ng-style="{width: 960/map.column.length}">
+                            <div swappable-droppable="cell" ng-repeat="cell in col" class="cell" ng-class="{'small-font': (config.smallFont === 'true')}">
+                                <div swappable-statement="cell.statement" swappable-statement-cell="cell" class="swappable" ng-class="{textright: textAlignRight, height: cellHeight}">
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="row sorted-statements">
+            <div class="col-xs-4 col-xs-offset-4 next-button">
+                <a ng-show="done()" href="" ng-click="next()" class="btn btn-default btn-lg btn-block" ng-bind-html="language.btnContinue"></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-if="debug" class="row">
+    {{ sortedStatements.grid }}
+</div>

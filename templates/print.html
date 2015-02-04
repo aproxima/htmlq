@@ -1,0 +1,49 @@
+<div class="row">
+    <p ng-bind-html="language.printoutText"></p>
+</div>
+
+<div class="row" style="border: 1px solid;">
+    <div class="col-xs-5">
+        Study: {{ studyTitle }} {{ studyVersion }}<br>
+        User-id: {{ userCode.userCode || '---' }}
+    </div>
+    <div class="col-xs-5">
+        Date: {{date | date:'yyyy-MM-dd HH:mm'}}<br>
+        Duration: {{ totalDuration }}
+    </div>
+    <div class="col-xs-2">
+        NEG: {{ negativeLength }}<br>
+        NEU: {{ neutralLength }}<br>
+        POS: {{ positiveLength }}
+    </div>
+</div>
+
+<div class="row" style="border: 1px solid; margin-top: 20px;">
+    <div class="col-xs-12" style="margin-top: 10px; margin-bottom: 10px;">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-1" ng-repeat="col in map.column">
+            <div class="row text-center" style="border: 1px solid; margin-bottom: 10px;"><b>{{col._id}}</b></div>
+            <div ng-repeat="cell in col.cells track by $index" class="row text-center vertical-center" style="border: 1px solid; min-height: 60px;">{{ sortedStatements.grid[$parent.$index][$index].statement._id }}</div>
+        </div>
+    </div>
+</div>
+
+<div ng-if="config['showStep5']" class="row" style="border: 1px solid; margin-top: 20px;">
+    <div class="col-xs-12">
+        <div class="row" ng-repeat="formElement in survey.formElements | filter:isInput">
+            form{{$index}}: {{ survey.formElementToString(formElement) }}
+        </div>
+    </div>
+</div>
+
+<div ng-if="config['showStep4']" class="row" style="margin-top: 20px;">
+    <div class="col-xs-12">
+        <p><b>Comments:</b></p>
+        <p ng-repeat="cell in disagreeColumn">
+            (s{{ cell.statement._id }}) {{ cell.statement.comment }}
+        </p>
+        <p ng-repeat="cell in agreeColumn">
+            (s{{ cell.statement._id }}) {{ cell.statement.comment }}
+        </p>
+    </div>
+</div>

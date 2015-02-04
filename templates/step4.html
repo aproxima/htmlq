@@ -1,0 +1,43 @@
+<div id="step4" track-duration="duration[3]">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="row comment-heading" ng-style="{'background-color': '#' + agreeColor}">
+                <p><span ng-bind-html="language.btnAgreement"></span> ({{ agreeRating }})</p>
+            </div>
+            <div class="row comment" ng-repeat="entry in agreeColumn">
+                <div class="col-xs-2">
+                    <div class="statement-card" ng-class="{textright: textAlignRight}">
+                        <b>({{ entry.statement._id }})</b> <span ng-bind-html="entry.statement.__text"></span>
+                    </div>
+                </div>
+                <div class="col-xs-10">
+                    <textarea rows="6" ng-model="entry.statement.comment"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="row comment-heading" ng-style="{'background-color': '#' + disagreeColor}">
+                <p><span ng-bind-html="language.btnDisagreement"></span> ({{ disagreeRating }})</p>
+            </div>
+            <div class="row comment" ng-repeat="entry in disagreeColumn">
+                <div class="col-xs-2">
+                    <div class="statement-card" ng-class="{textright: textAlignRight}">
+                        <b>({{ entry.statement._id }})</b> <span ng-bind-html="entry.statement.__text"></span>
+                    </div>
+                </div>
+                <div class="col-xs-10">
+                    <textarea rows="6" ng-model="entry.statement.comment"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-bottom: 50px;">
+        <div class="col-xs-12">
+            <a href="" ng-click="next()" class="btn btn-default btn-lg" ng-bind-html="language.btnContinue"></a>
+        </div>
+    </div>
+</div>

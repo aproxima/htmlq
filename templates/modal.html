@@ -1,0 +1,9 @@
+<div class="modal-header" ng-class="{textright: textAlignRight}">
+    <h3 class="modal-title" ng-bind-html="messageHead"></h3>
+</div>
+<div class="modal-body" ng-class="{textright: textAlignRight}">
+    <p ng-bind-html="message"></p>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()" ng-bind-html="okButton"></button>
+</div>

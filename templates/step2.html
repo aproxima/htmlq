@@ -1,0 +1,59 @@
+<div track-duration="duration[1]">
+    <div id="step2" droppable-background="" on-drop="removeStatement($statement)">
+        <div class="row">
+            <div class="grid">
+                <table>
+                    <tr class="grid-heading">
+                        <td style="width: 960px;" colspan="{{ map.column.length }}">
+                            <span style="float: left;" ng-bind-html="language.btnDisagreement"></span>
+                            <span style="float: right; text-align: right;" ng-bind-html="language.btnAgreement"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-xs-1 rating" ng-repeat="col in map.column" ng-style="{'background-color': '#' + col._colour, width: 960/map.column.length}">
+                            <b>{{ col._id }}</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-xs-1" ng-repeat="col in sortedStatements.grid" ng-style="{width: 960/map.column.length}">
+                            <div small-font="config.smallFont" swappable-droppable="cell" on-received-statement-from-categories="removeStatement($statement)" dynamically-create-initial-statement="true" ng-repeat="cell in col" class="cell" helper-width="{{ 960/map.column.length }}" ng-style="{height: cellHeight}" ng-class="{'small-font': (config.smallFont === 'true')}">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="row sorted-statements">
+            <div ng-show="!done()">
+                <div class="col-xs-4">
+                    <p class="heading" ng-bind-html="language.btnDisagreement"></p>
+                    <ul class="sortable disagree">
+                        <li class="draggable" clone-on-drag="true" draggable-statement="statement" ng-repeat="statement in sortedStatements.disagree" helper-width="{{ 960/map.column.length }}" small-font="config.smallFont" ng-class="{neutral: statement.category === 'neutral', agree: statement.category === 'agree', disagree: statement.category === 'disagree', textright: textAlignRight}"><b>({{ statement._id }})</b> <span ng-bind-html="statement.__text"></span></li>
+                    </ul>
+                </div>
+                <div class="col-xs-4">
+                    <p class="heading" ng-bind-html="language.btnNeutral"></p>
+                    <ul class="sortable neutral">
+                        <li class="draggable" clone-on-drag="true" draggable-statement="statement" ng-repeat="statement in sortedStatements.neutral" helper-width="{{ 960/map.column.length }}" small-font="config.smallFont" ng-class="{neutral: statement.category === 'neutral', agree: statement.category === 'agree', disagree: statement.category === 'disagree', textright: textAlignRight}"><b>({{ statement._id }})</b> <span ng-bind-html="statement.__text"></span></li>
+                    </ul>
+                </div>
+                <div class="col-xs-4">
+                    <p class="heading" ng-bind-html="language.btnAgreement"></p>
+                    <ul class="sortable agree">
+                        <li class="draggable" clone-on-drag="true" draggable-statement="statement" ng-repeat="statement in sortedStatements.agree" helper-width="{{ 960/map.column.length }}" small-font="config.smallFont" ng-class="{neutral: statement.category === 'neutral', agree: statement.category === 'agree', disagree: statement.category === 'disagree', textright: textAlignRight}"><b>({{ statement._id }})</b> <span ng-bind-html="statement.__text"></span></li>
+                    </ul>
+                </div>
+            </div>
+            <div ng-show="done()">
+                <div class="col-xs-4 col-xs-offset-4 next-button">
+                    <a href="" ng-click="next()" class="btn btn-default btn-lg btn-block" ng-bind-html="language.btnContinue"></a>
+                </div>
+            </div>
+        </div>
+
+        <div ng-if="debug" class="row">
+            {{ sortedStatements.grid }}
+        </div>
+    </div>
+</div>

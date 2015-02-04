@@ -1,0 +1,19 @@
+<div id="submit">
+    <div class="row">
+        <div class="col-xs-12" ng-class="{textright: textAlignRight}">
+            <h1 ng-bind-html="language.transferHead"></h1>
+
+            <p ng-if="firstTry" ng-bind-html="language.transferText"></p>
+            <p ng-if="!firstTry" ng-bind-html="language.transferFailed"></p>
+
+            <p ng-if="config.submitUrl">
+                <a href="" ng-click="submitViaHttp()" class="btn btn-primary" ng-bind-html="language.btnTransfer"></a>
+            </p>
+
+            <span ng-if="!config.submitUrl || !firstTry">
+                <p><a href="mailto:{{ mailReceiver }} ?subject={{ mailSubject | escape }}&body={{ mailText | escape }}" class="btn btn-primary" ng-bind-html="language.btnMail"></a></p>
+                <p><a href="" ui-sref="root.print" class="btn btn-primary" ng-bind-html="language.btnPrint"></a></p>
+            </span>
+        </div>
+    </div>
+</div>

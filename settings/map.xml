@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+//
+// ===================================================
+// FlashQ by Christian Hackert and Gernot Braehler
+// ===================================================
+// Distribution and score sheet.
+// @author		Christian Hackert <www.hackert.biz/flashq>
+// @version		FlashQ version 1.0
+// ===================================================
+// 
+// In this file you can set up the score sheet. FlashQ can 
+// handle all types of distribution (including non-forced).
+// 
+// EXAMPLE
+// Let's have a look at a (very) simple example with
+// three columns and a bell-shaped distribution:
+//
+// |====|====|====|
+// | -1 | 0  | +1 |
+// |====|====|====|
+// |    |    |    | 
+// |====|====|====|
+//      |    |
+//      |====|
+//
+//
+// We have three columns, so we need three column-
+// nodes in our XML-file. The column heads (-1, 0,
+// +1) are saved in an attribute named 'id'. The 
+// number of rows per column (1, 2, 1) goes between 
+// the opening and the closing column-tag. If you 
+// want to have coloured column heads, use the 'colour'-
+// attribute (hex code). All column-nodes are surrounded 
+// by a parent-node called 'map'. The finshied file 
+// looks like the following:
+// 
+// <map version="1.0" hmtlParse="false">
+//   <column id="-1" colour="FFD5D5">1</column>
+//   <column id="0" colour="E9E9E9">2</column>
+//   <column id="+1" colour="9FDFBF">1</column>
+// </map>
+//
+// ===================================================
+// 
+-->
+
+<map version="1.0" htmlParse="false">
+  <column id="-2" colour="FFD5D5">2</column>
+  <column id="-1" colour="FFD5D5">3</column>
+  <column id=" 0" colour="E9E9E9">4</column>
+  <column id="+1" colour="9FDFBF">3</column>
+  <column id="+2" colour="9FDFBF">2</column>
+</map>
