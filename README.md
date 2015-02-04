@@ -1,6 +1,6 @@
 ## HtmlQ
 
-by **aproxima Gesellschaft für Markt- und Sozialforschung Weimar**
+by [aproxima Gesellschaft für Markt- und Sozialforschung Weimar](http://www.aproxima.de/).
 
 Q-sorting tool in HTML5. Backwards compatible with settings files of [FlashQ](http://www.hackert.biz/flashq/home/).
 
