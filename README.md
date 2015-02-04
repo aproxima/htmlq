@@ -21,12 +21,15 @@ HtmlQ introduces a few new settings that were not available in FlashQ:
 
 `settings/config.xml`:
 
+```xml
     <!-- Disable the back button within the page. Users can always use the browser back button to navigate the survey anyway. -->
     <item id="disableBackButton">true</item>
+```
 
 
 `settings/language.xml`:
 
+```xml
     <!-- Label of the back button -->
     <item id="backButton">Back</item>
 
@@ -35,7 +38,7 @@ HtmlQ introduces a few new settings that were not available in FlashQ:
 
     <!-- Warning that will be displayed to the user if they try to navigate away from the questionnaire and could lose their data -->
     <item id="leaveSiteWarning">Your answers will be lost.</item>
-
+```
 
 ## Custom Logos
 
