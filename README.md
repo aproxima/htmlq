@@ -13,7 +13,7 @@ Q-sorting tool in HTML5. Backwards compatible with settings files of [FlashQ](ht
 
 ## Getting started
 
-1. Download the latest release at [https://github.com/aproxima/htmlq/releases]()
+1. Download the latest release at [https://github.com/aproxima/htmlq/releases](https://github.com/aproxima/htmlq/releases)
 2. Extract the archive
 3. Edit .xml files in the `settings` folder: Specify your statements, configure the map, change the translation, add a password...
 4. While editing, you can try out the questionnaire at any time by opening `index.html` with Firefox
@@ -37,7 +37,7 @@ HtmlQ introduces a few new settings that were not available in FlashQ:
 ```xml
     <!-- Disable the back button within the page. Users can always use the browser back button to navigate the survey anyway. -->
     <item id="disableBackButton">true</item>
-    
+
     <!-- Make the font of the cards smaller so that users can read more of the text -->
     <item id="smallFont">false</item>
 ```
