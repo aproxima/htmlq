@@ -6,7 +6,7 @@ Q-sorting tool in HTML5. Backwards compatible with settings files of [FlashQ](ht
 
 ## FAQ
 
-You can find the FAQ here: [https://github.com/aproxima/htmlq/wiki/FAQ]()
+You can find the FAQ here: [https://github.com/aproxima/htmlq/wiki/FAQ](https://github.com/aproxima/htmlq/wiki/FAQ)
 
 ## Features
 
