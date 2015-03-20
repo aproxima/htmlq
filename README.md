@@ -4,6 +4,10 @@ by [aproxima Gesellschaft für Markt- und Sozialforschung Weimar](http://www.apr
 
 Q-sorting tool in HTML5. Backwards compatible with settings files of [FlashQ](http://www.hackert.biz/flashq/home/).
 
+## FAQ
+
+You can find the FAQ here: [https://github.com/aproxima/htmlq/wiki/FAQ]()
+
 ## Features
 
 * Responsive layout for iPad and Android tablets
