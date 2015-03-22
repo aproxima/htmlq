@@ -309,7 +309,7 @@ angular.module('app', ['ui.router', 'ui.bootstrap'])
                 el.scale = formElements[i].attributes.getNamedItem('scale') ? formElements[i].attributes.getNamedItem('scale').value.split(';') : [];
                 el.required = (formElements[i].attributes.getNamedItem('required') && formElements[i].attributes.getNamedItem('required').value.toLowerCase() === 'true');
                 el.maxLength = (formElements[i].attributes.getNamedItem('maxlength') && formElements[i].attributes.getNamedItem('maxlength').value);
-                el.restricted = (typeof formElements[i].attributes.getNamedItem('restricted') !== 'undefined');
+                el.restricted = (formElements[i].attributes.getNamedItem('restricted') && formElements[i].attributes.getNamedItem('restricted').value && formElements[i].attributes.getNamedItem('restricted').value.length > 0);
                 if (formElements[i].firstChild && formElements[i].firstChild.nodeValue) {
                     el.options = formElements[i].firstChild.nodeValue.split(';');
                 }
