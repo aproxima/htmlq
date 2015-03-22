@@ -14,6 +14,7 @@ You can find the FAQ here: [https://github.com/aproxima/htmlq/wiki/FAQ](https://
 * Compatible with Internet Explorer 8 and later
 * Compatible with settings files of [FlashQ](http://www.hackert.biz/flashq/home/)
 * Compatible with [FlashQ PHP backend](http://www.hackert.biz/flashq/downloads/)
+* Unique participant identifier can be passed via query paramater
 
 ## Getting started
 
@@ -59,6 +60,10 @@ HtmlQ introduces a few new settings that were not available in FlashQ:
     <!-- Warning that will be displayed to the user if they try to navigate away from the questionnaire and could lose their data -->
     <item id="leaveSiteWarning">Your answers will be lost.</item>
 ```
+
+## Creating unique participation links (UID)
+
+If you want to send out unique links to a HtmlQ survey that will automatically fill in the UID/user code, you can create links in the following format: [https://www.yourdomain.com/htmlq/#/?userCode=USERCODE](). In the resulting CSV file, the user code will show up in the UID field. This allows you to identify participants without requiring them to log in.
 
 ## Custom Logos
 
