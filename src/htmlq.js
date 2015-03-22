@@ -165,9 +165,6 @@ angular.module('app', ['ui.router', 'ui.bootstrap'])
                 }],
                 message: ['language', function(language) {
                     return language.step1Text;
-                }],
-                shuffle: ['config', function(config) {
-                    return config['shuffleCards'] == 'true';
                 }]
             },
             hasHelp: true
@@ -263,6 +260,9 @@ angular.module('app', ['ui.router', 'ui.bootstrap'])
     // initialize sorted statements
     $scope.sortedStatements = SortedStatements;
     $scope.sortedStatements.list = statements.slice();
+    if (config['shuffleCards'] === 'true') {
+        shuffleInPlace($scope.sortedStatements.list);
+    }
 
     // initialize grid
     var columnsLength = $scope.map.column.length;
@@ -871,7 +871,7 @@ angular.module('app', ['ui.router', 'ui.bootstrap'])
     }
 }])
 
-.controller('Step1Ctrl', ['message', 'messageHead', 'language', 'shuffle', 'config', 'SortedStatements', 'MessageModal', '$rootScope', '$scope', '$state', function(message, messageHead, language, shuffle, config, SortedStatements, MessageModal, $rootScope, $scope, $state) {
+.controller('Step1Ctrl', ['message', 'messageHead', 'language', 'config', 'SortedStatements', 'MessageModal', '$rootScope', '$scope', '$state', function(message, messageHead, language, config, SortedStatements, MessageModal, $rootScope, $scope, $state) {
     $scope.help = function() {
         MessageModal.show(messageHead, message, config.textAlign, language.btnContinue);
     };
