@@ -122,7 +122,7 @@ angular.module('app', ['ui.router', 'ui.bootstrap'])
             }
         })
         .state('root.welcome', {
-            url: '/',
+            url: '/?userCode',
             templateUrl: 'templates/empty.html',
             controller: 'WelcomeCtrl',
             resolve: {
@@ -131,6 +131,9 @@ angular.module('app', ['ui.router', 'ui.bootstrap'])
                 }],
                 message: ['language', function(language) {
                     return language.welcomeText;
+                }],
+                'userCodeParam': ['$stateParams', function($stateParams) {
+                    return $stateParams.userCode;
                 }]
             },
             next: 'root.login'
@@ -429,8 +432,12 @@ angular.module('app', ['ui.router', 'ui.bootstrap'])
     });
 }])
 
-.controller('WelcomeCtrl', ['message', 'messageHead', 'MessageModal', 'language', 'config', '$scope', '$state', function(message, messageHead, MessageModal, language, config, $scope, $state) {
+.controller('WelcomeCtrl', ['message', 'messageHead', 'MessageModal', 'UserCode', 'userCodeParam', 'language', 'config', '$scope', '$state', function(message, messageHead, MessageModal, UserCode, userCodeParam, language, config, $scope, $state) {
     var modal = MessageModal.show(messageHead, message, config.textAlign, language.btnContinue);
+
+    if (userCodeParam && userCodeParam.length > 0) {
+        UserCode.userCode = userCodeParam;
+    }
 
     modal.result.then(function() {
         // skip login if it's not active
