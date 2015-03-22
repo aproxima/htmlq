@@ -136,13 +136,15 @@ angular.module('app', ['ui.router', 'ui.bootstrap'])
                     return $stateParams.userCode;
                 }]
             },
-            next: 'root.login'
+            next: 'root.login',
+            warnOnClose: false
         })
         .state('root.login', {
             url: '/login',
             templateUrl: 'templates/login.html',
             controller: 'LoginCtrl',
-            next: 'root.introduction'
+            next: 'root.introduction',
+            warnOnClose: false
         })
         .state('root.introduction', {
             url: '/introduction',
@@ -156,7 +158,8 @@ angular.module('app', ['ui.router', 'ui.bootstrap'])
                     return language.introText;
                 }]
             },
-            next: 'root.step1'
+            next: 'root.step1',
+            warnOnClose: true
         })
         .state('root.step1', { // 3 columns
             url: '/step1',
@@ -170,7 +173,8 @@ angular.module('app', ['ui.router', 'ui.bootstrap'])
                     return language.step1Text;
                 }]
             },
-            hasHelp: true
+            hasHelp: true,
+            warnOnClose: true
         })
         .state('root.step2', { // +- grid
             url: '/step2',
@@ -185,7 +189,8 @@ angular.module('app', ['ui.router', 'ui.bootstrap'])
                 }]
             },
             hasHelp: true,
-            noBackButton: true
+            noBackButton: true,
+            warnOnClose: true
         })
         .state('root.step3', { // reorder grid
             url: '/step3',
@@ -199,7 +204,8 @@ angular.module('app', ['ui.router', 'ui.bootstrap'])
                     return language.step3Text;
                 }]
             },
-            hasHelp: true
+            hasHelp: true,
+            warnOnClose: true
         })
         .state('root.step4', { // comments for best and worst rating
             url: '/step4',
@@ -213,7 +219,8 @@ angular.module('app', ['ui.router', 'ui.bootstrap'])
                     return language.step4Text;
                 }]
             },
-            hasHelp: true
+            hasHelp: true,
+            warnOnClose: true
         })
         .state('root.step5', { // demographics or questionnaire
             url: '/step5',
@@ -227,22 +234,26 @@ angular.module('app', ['ui.router', 'ui.bootstrap'])
                     return language.step5Text;
                 }]
             },
-            hasHelp: true
+            hasHelp: true,
+            warnOnClose: true
         })
         .state('root.submit', { // demographics or questionnaire
             url: '/submit?retry',
             templateUrl: 'templates/submit.html',
-            controller: 'SubmitCtrl'
+            controller: 'SubmitCtrl',
+            warnOnClose: true
         })
         .state('root.print', { // demographics or questionnaire
             url: '/print',
             templateUrl: 'templates/print.html',
-            controller: 'PrintCtrl'
+            controller: 'PrintCtrl',
+            warnOnClose: true
         })
         .state('root.thanks', { // demographics or questionnaire
             url: '/thanks',
             templateUrl: 'templates/thanks.html',
-            controller: 'ThanksCtrl'
+            controller: 'ThanksCtrl',
+            warnOnClose: false
         });
     $urlRouterProvider.otherwise('/');
 }])
@@ -420,7 +431,11 @@ angular.module('app', ['ui.router', 'ui.bootstrap'])
     };
 
     window.onbeforeunload = function() {
-        return language.leaveSiteWarning || '';
+        if ($state.current.warnOnClose == true) {
+            return language.leaveSiteWarning || '';
+        } else {
+            return undefined;
+        }
     };
 }])
 
